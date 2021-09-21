@@ -15,7 +15,7 @@ use App\Http\Controllers\MustikaController;
 |
 */
 
-Route::get('/welcome', [MustikaController::class,'homepage']);
+Route::get('/welcome', [MustikaController::class,'index']);
 
 Route::prefix('prodi')->group(function () {
     Route::get('/manajemen-informatika', [MustikaController::class,'m']);
@@ -25,11 +25,12 @@ Route::prefix('prodi')->group(function () {
 Route::get('/news/{angka}', [MustikaController::class,'berita']);
 
 Route::prefix('sarana')->group(function () {
-    Route::get('/perkantoran', [MustikaController::class,'per']);
+    Route::get('/perkantoran', [MustikaController::class,'kantor']);
     Route::get('/laboratorium', [MustikaController::class,'lab']);
-    Route::get('/kelas', [MustikaController::class,'kel']);
+    Route::get('/kelas', [MustikaController::class,'kelas']);
     Route::get('/lainnya', [MustikaController::class,'lain']);
-Route::get('/aboutus', [MustikaController::class,'soal']);
+    });
+
+Route::get('/aboutus', [MustikaController::class,'about']);
 
 Route::get('/comment/{nama}/{pesan}', [MustikaController::class,'komen']);
-});

@@ -6,38 +6,38 @@ use Illuminate\Http\Request;
 
 class MustikaController extends Controller
 {
-    public function homepage(){
-        return 'Selamat Datang di Jurusan Teknologi Informasi Politeknik Negeri Malang';
+    public function index(){
+        return view('home');
     }
     public function m(){
-        return 'Halaman Program Studi D3 - Manajemen Informatika'; 
+        return view('prodi.mi');
     }
     public function t(){
-        return 'Halaman Program Studi D4 - Teknik Informatika';
+        return view('prodi.ti');
     }
 
     public function berita($angka){
-        return 'Halaman Berita Jurusan Teknologi Informasi '.$angka;
+        return view('news', ['angka' => $angka]);
     }
 
-    public function per(){
-        return 'Halaman Sarana Perkantoran Jurusan Teknologi Informasi';
+    public function kantor(){
+        return view('sarana.perkantoran');
     }
     public function lab(){
-        return 'Halaman Daftar Sarana Laboratorium Jurusan Teknologi Informasi';
+        return view('sarana.laboratorium');
     }
-    public function kel(){
-        return 'Halaman Sarana Kelas Jurusan Teknologi Informasi';
+    public function kelas(){
+        return view('sarana.kelas');
     }
     public function lain(){
-        return 'Halaman Daftar Sarana Lainnya Jurusan Teknologi Informasi';
+        return view('sarana.lainnya');
     }
 
-    public function soal(){
-        echo 'About Us dari Jurusan Teknologi Informasi';
+    public function about(){
+        return view('about-us');
     }
 
     public function komen($nama, $pesan){
-        return 'Nama Saya '.$nama. '. Pesan Saya adalah '.$pesan;
+        return view('comment', ['nama' => $nama, 'pesan' => $pesan]);
     }
 }
